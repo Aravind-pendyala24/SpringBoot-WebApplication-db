@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  javaspapp:
+    build:
+      dockerfile: Dockerfile
+    ports:
+    - 8080:8080
+    restart: always
+    container_name: javadbapp
+    depends_on:
+    - empdb
+    
+  empdb:
+    image: mysql:8.0.33
+    container_name: empdb
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=iamdbdev123
+      - MYSQL_DATABASE=employees
+
