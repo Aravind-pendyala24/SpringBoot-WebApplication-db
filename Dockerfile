@@ -1,4 +1,4 @@
-FROM openjdk:17.0-jdk
+FROM openjdk:17-jdk-slim
 WORKDIR /usr/src/app/
 RUN apt update && apt install maven -y
 COPY ./ /usr/src/app/
